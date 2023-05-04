@@ -1,0 +1,17 @@
+This Detection_Model folder consists of 
+
+Python File :
+main.py file
+
+Class File : 
+Database.py
+Vehicle.py
+detection.py
+sms_api.py
+
+Best validation from YOLOv5 :
+best.pt
+
+Libraries : 
+requirments.txt
+

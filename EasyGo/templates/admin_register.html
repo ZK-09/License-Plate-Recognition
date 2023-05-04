@@ -1,0 +1,63 @@
+<!-- 
+# Programmer Name : TAN ZE KAI - TP 061463
+# Program Name : admin_register.html
+# Description : 
+# '''
+# This is admin register HTML file where 
+# admin register new vehicle 
+# ''' 
+# First Written Date : 10th April 2023
+# Last Modified Date : 10th April 2023 
+-->
+
+{% extends "base_admin.html" %}
+{% block title %}Register Vehicle{% endblock %}
+{% block content %}  
+
+<div class="container py-5 h-15"> 
+    <div class="form-outline form-white mb-4">
+        <h1 class="fw-bold mb-1 text-uppercase" style="color: whitesmoke;">Register New Vehicle</h1>
+    </div>    
+    <form action="{{url_for('admin_register')}}" method="POST">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="{{ category }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endwith %}
+        <div class="form-group">      
+            <label style="color: whitesmoke;" for="inputUsername">Username</label>
+            <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label  style="color: whitesmoke;" for="inputPassword">Password</label>
+            <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password">
+        </div>    
+        <div class="form-group">
+        <label style="color: whitesmoke;" for="inputGender">Gender</label>
+        <select name="inputGender" id="inputGender" class="form-control">
+            <option selected>Select Gender</option>
+            <option>M</option>
+            <option>F</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label style="color: whitesmoke;" for="inputPhone">Phone</label>
+            <input type="tel" class="form-control" name="inputPhone" id="inputPhone" pattern="[0-9]{3}[0-9]{7}" placeholder="0191234567">
+        </div>
+        <div class="form-group">
+            <label style="color: whitesmoke;" for="inputVehicle">Vehicle Number</label>
+            <input type="text" class="form-control" name="inputVehicle" id="inputVehicle" placeholder="Plate Number">
+        </div>
+        <div class="form-group">
+            <label style="color: whitesmoke;" for="inputModel">Vehicle Model</label>
+            <input type="text" class="form-control" name="inputModel" id="inputModel" placeholder="Vehicle Model">
+        </div>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <button class="btn btn-outline-light btn-lg px-5" type="submit" >Register</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

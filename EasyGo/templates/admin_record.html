@@ -1,0 +1,52 @@
+<!-- 
+# Programmer Name : TAN ZE KAI - TP 061463
+# Program Name : admin_record.html
+# Description : 
+# '''
+# This is admin record HTML file where 
+# admin can monitor vehicle's status 
+# ''' 
+# First Written Date : 10th April 2023
+# Last Modified Date : 10th April 2023 
+-->
+
+{% extends "base_admin.html" %}
+{% block title %}Record{% endblock %}
+{% block content %}  
+<div style="background: aliceblue; padding: 10px;" class="d-flex justify-content-end">
+    <form class="form-inline my-2 my-lg-0" action="{{url_for('admin_record')}}" method="POST">
+        <input class="form-control mr-sm-3" type="search" name="inputSearch" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info" type="submit">Search</button>
+    </form>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Plate Number</th>
+            <th scope="col">Progress</th>
+            <th scope="col">Entrance Date</th>
+            <th scope="col">Entrance Time</th>
+            <th scope="col">Exit Date</th>
+            <th scope="col">Exit Time</th>
+            <th scope="col">Parking Fee</th>
+        </tr>
+    </thead>
+    {% for record in record_list %}
+    <tbody>        
+        <tr>
+            <td>{{record[0]}}</td>
+            <td>{{record[1]}}</td>
+            <td>{{record[2]}}</td>
+            <td>{{record[3]}}</td>
+            <td>{{record[4]}}</td>
+            <td>{{record[5]}}</td>
+            {% if record[6] == None: %}
+                <td>RM 0.0</td>
+            {% else %}
+                <td>RM {{record[6]}}</td>
+            {% endif %}
+        </tr>        
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock %}

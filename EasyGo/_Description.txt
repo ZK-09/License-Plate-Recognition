@@ -1,0 +1,20 @@
+This EasyGo folder consists of 
+
+Class File : 
+Customer.py
+Admin.py
+User.py
+
+Main Python File :
+main.py
+
+CSS Folder :
+static/style.css
+
+HTML file :
+templates/..
+
+Libraries :
+requirements.txt
+
+

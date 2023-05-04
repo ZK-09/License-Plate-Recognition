@@ -1,0 +1,46 @@
+<!-- 
+# Programmer Name : TAN ZE KAI - TP 061463
+# Program Name : admin_register.html
+# Description : 
+# '''
+# This is admin add vehicle HTML file where 
+# user can have more than one vehicle 
+# ''' 
+# First Written Date : 10th April 2023
+# Last Modified Date : 16th April 2023 
+-->
+
+{% extends "base_admin.html" %}
+{% block title %}Add Vehicle{% endblock %}
+{% block content %}  
+<div class="container py-5 h-35">
+    <div class="form-outline form-white mb-4">
+        <h1 class="fw-bold mb-5 text-uppercase" style="color: whitesmoke;">Add Vehicle</h1>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div class="{{ category }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}`
+    {% endwith %}
+    <form action="{{url_for('admin_add_vehicle')}}" method="POST">
+        <div class="form-group">      
+            <label class="fw-bold mb-3 text-uppercase" style="color: whitesmoke;" for="inputUsername">Username</label>
+            <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username">
+        </div>   
+        <div class="form-group">
+        <label style="color: whitesmoke;" for="inputVehicle">Vehicle Number</label>
+        <input type="text" class="form-control" name="inputVehicle" id="inputVehicle" placeholder="Plate Number">
+        </div>
+        <div class="form-group">
+        <label style="color: whitesmoke;" for="inputModel">Vehicle Model</label>
+        <input type="text" class="form-control" name="inputModel" id="inputModel" placeholder="Vehicle Model">
+        </div>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <button class="btn btn-outline-light btn-lg px-5" type="submit" >Add</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
